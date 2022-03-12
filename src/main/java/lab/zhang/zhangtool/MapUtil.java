@@ -1,7 +1,6 @@
 package lab.zhang.zhangtool;
 
-import org.apache.commons.beanutils.BeanMap;
-import org.apache.commons.beanutils.BeanUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,15 +10,13 @@ import java.util.Map;
  * @author zhangrj
  */
 public class MapUtil {
+    static private final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static public <T> T mapToObject(Map<String, ?> map, Class<T> clazz) throws Exception {
         if (map == null) {
             return null;
         }
-
-        T obj = clazz.newInstance();
-        BeanUtils.populate(obj, map);
-        return obj;
+        return OBJECT_MAPPER.convertValue(map, clazz);
     }
 
 
@@ -27,7 +24,7 @@ public class MapUtil {
         if (obj == null) {
             return null;
         }
-        return new BeanMap(obj);
+        return OBJECT_MAPPER.convertValue(obj, Map.class);
     }
 
 

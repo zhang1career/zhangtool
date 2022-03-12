@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BaseRepo {
+public class ListUtil {
 
     @NotNull
     static public <P, R> List<R> columnOf(@NotNull List<P> inputList, Convertible<P, R> convertor) {

@@ -1,16 +1,16 @@
-package lab.zhang.zhangtool;
+package lab.zhang.zhangtool.table.csv;
 
 import cn.hutool.core.text.csv.CsvData;
 import cn.hutool.core.text.csv.CsvRow;
+import lab.zhang.zhangtool.MapUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * @author zhangrj
  */
-public class TableUtil {
+public class CsvUtil {
 
     static public <T> List<T> parseObject(CsvData csvData, Class<T> clazz) throws Exception {
         List<CsvRow> rows = csvData.getRows();
@@ -26,7 +26,7 @@ public class TableUtil {
         return objList;
     }
 
-    private TableUtil() {
+    private CsvUtil() {
         throw new AssertionError();
     }
 }
