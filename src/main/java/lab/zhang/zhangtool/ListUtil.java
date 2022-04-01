@@ -2,10 +2,7 @@ package lab.zhang.zhangtool;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ListUtil {
 
@@ -30,11 +27,26 @@ public class ListUtil {
         return output;
     }
 
-
+    /**
+     * Convert Iterable to LinkedHashMap, indexed by a dedicated field.
+     *
+     * Features:
+     *   The output order of LinkedHashMap is as same as the input order.
+     *
+     * @param iter
+     * @param convertor
+     * @param <K>
+     * @param <V>
+     * @return LinkedHashMap
+     */
     @NotNull
-    static public <K, V> Map<K, V> indexById(@NotNull List<V> list, Convertible<V, K> convertor) {
-        Map<K, V> map = new HashMap<>(list.size());
-        for (V item : list) {
+    static public <K, V> Map<K, V> indexById(@NotNull Iterable<V> iter, Convertible<V, K> convertor) {
+        if (convertor == null) {
+            throw new IllegalArgumentException("The convertor should not be null.");
+        }
+
+        Map<K, V> map = new LinkedHashMap<>();
+        for (V item : iter) {
             map.put(convertor.covertFrom(item), item);
         }
         return map;

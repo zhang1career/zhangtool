@@ -6,11 +6,12 @@
 
     <groupId>lab.zhang</groupId>
     <artifactId>zhangtool</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <commons-lang3.version>3.9</commons-lang3.version>
         <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
         <hutool-all.version>5.7.1</hutool-all.version>
@@ -18,7 +19,7 @@
         <lombok.version>1.18.20</lombok.version>
         <annotations.version>13.0</annotations.version>
         <slf4j.version>1.7.36</slf4j.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>4.12</junit.version>
     </properties>
 
     <dependencies>
@@ -82,6 +83,10 @@
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
                     <groupId>org.slf4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>junit</artifactId>
+                    <groupId>junit</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
