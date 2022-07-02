@@ -1,4 +1,4 @@
-package lab.zhang.zhangtool;
+package lab.zhang.zhangtool.basic;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

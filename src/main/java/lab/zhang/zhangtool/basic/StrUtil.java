@@ -1,4 +1,4 @@
-package lab.zhang.zhangtool;
+package lab.zhang.zhangtool.basic;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Contract;
