@@ -1,4 +1,4 @@
-package lab.zhang.zhangtool.log;
+package lab.zhang.zhangtool.log.trace;
 
 import lab.zhang.zhangtool.ApplicationTest;
 import lombok.extern.slf4j.Slf4j;
@@ -9,11 +9,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import org.junit.*;
 
+import javax.annotation.Resource;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {ApplicationTest.class}, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @PropertySource(value = "classpath:application.properties")
 @Slf4j
 public class TraceUtilTest {
+
+    @Resource(name = "traceDemoImpl")
+    ITraceDemo tracer;
+
+    @Resource(name = "untraceDemoImpl")
+    ITraceDemo unTracer;
+
     @Test
     public void test_log_with_trace_id() throws Exception {
         TraceUtil.create();
@@ -28,5 +37,13 @@ public class TraceUtilTest {
 
         TraceUtil.create("abcd");
         log.info("abcd");
+        TraceUtil.destroy();
+
+    }
+
+    @Test
+    public void test_annotation() throws Exception {
+        tracer.do_something("");
+        unTracer.do_something("5678");
     }
 }

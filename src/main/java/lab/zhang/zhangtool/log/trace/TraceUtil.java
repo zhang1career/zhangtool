@@ -1,4 +1,4 @@
-package lab.zhang.zhangtool.log;
+package lab.zhang.zhangtool.log.trace;
 
 import cn.hutool.core.util.StrUtil;
 import lab.zhang.zhangtool.basic.UuidUtil;

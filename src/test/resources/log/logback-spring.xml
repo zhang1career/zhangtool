@@ -2,11 +2,11 @@
 <configuration>
 
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
-<!--    <springProperty scope="context" name="CONSOLE_PATTERN" source="application.console-pattern"/>-->
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %X{traceId:-} [%thread] %highlight(%-5level) %logger{36}.%M - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{traceId:-}] %highlight(%-5level) %logger{25}.%M - %msg%n</pattern>
+            <charset>utf8</charset>
         </encoder>
     </appender>
 
