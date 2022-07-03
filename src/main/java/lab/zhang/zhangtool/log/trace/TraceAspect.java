@@ -1,5 +1,6 @@
 package lab.zhang.zhangtool.log.trace;
 
+import lab.zhang.zhangtool.log.util.TraceUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -23,7 +24,7 @@ public class TraceAspect {
         try {
             return joinPoint.proceed();
         } finally {
-            TraceUtil.destroy();
+//            TraceUtil.destroy();
         }
     }
 }

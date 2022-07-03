@@ -1,6 +1,6 @@
-package lab.zhang.zhangtool.log.trace;
+package lab.zhang.zhangtool.log.metric;
 
-import org.springframework.core.annotation.Order;
+import org.springframework.context.annotation.DependsOn;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-@Order(1)
-public @interface Trace {
+public @interface MetricTime {
+    String value();
 }

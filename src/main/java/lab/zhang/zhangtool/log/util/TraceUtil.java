@@ -1,4 +1,4 @@
-package lab.zhang.zhangtool.log.trace;
+package lab.zhang.zhangtool.log.util;
 
 import cn.hutool.core.util.StrUtil;
 import lab.zhang.zhangtool.basic.UuidUtil;
@@ -15,17 +15,12 @@ public class TraceUtil {
 
 
     static public void create() {
-        String traceId = MDC.get(TRACE_ID);
-        if (!StrUtil.isEmpty(traceId)) {
-            return;
-        }
-        traceId = UuidUtil.uuid();
+        String traceId = UuidUtil.uuid();
         if (log.isDebugEnabled()) {
             log.debug("create traceId: {}", traceId);
         }
         MDC.put(TRACE_ID, traceId);
     }
-
 
     static public void create(String specifiedTraceId) {
         if (StrUtil.isEmpty(specifiedTraceId)) {
