@@ -2,7 +2,7 @@ package lab.zhang.zhangtool.table.csv;
 
 import cn.hutool.core.text.csv.CsvData;
 import cn.hutool.core.text.csv.CsvRow;
-import lab.zhang.zhangtool.basic.MapUtil;
+import lab.zhang.zhangtool.util.MapUtil;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -5,7 +5,7 @@
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{traceId:-}] %highlight(%-5level) %logger{25}.%M - %msg%n</pattern>
+            <pattern>%blue(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%white(%thread)] [%cyan(%X{traceId:-})] %highlight(%-5level) %white(%logger{25}.%M) - %msg%n</pattern>
             <charset>utf8</charset>
         </encoder>
     </appender>

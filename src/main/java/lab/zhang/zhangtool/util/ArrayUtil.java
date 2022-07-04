@@ -1,4 +1,4 @@
-package lab.zhang.zhangtool.basic;
+package lab.zhang.zhangtool.util;
 
 /**
  * @author zhangrj

@@ -26,7 +26,7 @@ public class MetricAspect {
             return joinPoint.proceed();
         } finally {
             TimerUtil.tick();
-            log.info("Metric.Time | {} cost {}ms", metricTime.value(), TimerUtil.getCostStr());
+            log.info("metric.time | {} costs {}ms", metricTime.value(), TimerUtil.getCostStr());
             TimerUtil.destroy();
         }
     }

@@ -1,4 +1,4 @@
-package lab.zhang.zhangtool.basic;
+package lab.zhang.zhangtool.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

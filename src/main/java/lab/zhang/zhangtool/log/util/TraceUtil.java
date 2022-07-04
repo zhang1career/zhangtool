@@ -1,7 +1,7 @@
 package lab.zhang.zhangtool.log.util;
 
 import cn.hutool.core.util.StrUtil;
-import lab.zhang.zhangtool.basic.UuidUtil;
+import lab.zhang.zhangtool.util.UuidUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 

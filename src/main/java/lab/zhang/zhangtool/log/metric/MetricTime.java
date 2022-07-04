@@ -1,7 +1,5 @@
 package lab.zhang.zhangtool.log.metric;
 
-import org.springframework.context.annotation.DependsOn;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
