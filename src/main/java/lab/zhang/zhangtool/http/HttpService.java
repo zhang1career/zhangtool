@@ -3,9 +3,6 @@ package lab.zhang.zhangtool.http;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import lombok.extern.slf4j.Slf4j;
-import org.hobsoft.spring.resttemplatelogger.LoggingCustomizer;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
@@ -14,7 +11,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import java.lang.reflect.Type;
 import java.net.URI;
 import java.util.Collections;
 import java.util.Map;
