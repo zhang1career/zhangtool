@@ -1,7 +1,8 @@
-package lab.zhang.zhangtool.http;
+package lab.zhang.zhangtool.http.client;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import lab.zhang.zhangtool.http.model.Request;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
@@ -20,21 +21,21 @@ import java.util.Map;
  */
 @Component
 @Slf4j
-public class HttpService {
+public class HttpClient {
 
-    static private HttpService httpService;
+    static private HttpClient httpClient;
 
     @Resource
     private RestTemplate restTemplate;
 
     @PostConstruct
     private void init() {
-        httpService = this;
-        httpService.restTemplate = this.restTemplate;
+        httpClient = this;
+        httpClient.restTemplate = this.restTemplate;
     }
 
-    public <P, R> R post(RequestSignature signature, String addr, Map<String, String> headMap, Map<String, Object> paramMap, P httpBody, Class<R> resultClazz) {
-        String url = buildUrl(signature, addr);
+    public <P, R> R post(Request request, String addr, Map<String, String> headMap, Map<String, Object> paramMap, P httpBody, Class<R> resultClazz) {
+        String url = buildUrl(request, addr);
         UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(url);
         for (Map.Entry<String, Object> entry : paramMap.entrySet()) {
             uriBuilder.queryParam(entry.getKey(), entry.getValue());
@@ -55,7 +56,7 @@ public class HttpService {
     private <P> String httpRequest(URI uri, HttpMethod httpMethod, HttpEntity<P> httpEntity) {
         ResponseEntity<String> responseEntity = null;
         try {
-            responseEntity = httpService.restTemplate.exchange(uri, httpMethod, httpEntity, String.class);
+            responseEntity = httpClient.restTemplate.exchange(uri, httpMethod, httpEntity, String.class);
         } catch (RestClientException e) {
             log.error("HttpService | post | error: " + e.getMessage());
         }
@@ -65,9 +66,9 @@ public class HttpService {
         return responseEntity.getBody();
     }
 
-    private String buildUrl(RequestSignature requestSignature, String path) {
+    private String buildUrl(Request request, String path) {
         String pathPrefix = path.startsWith("/") ? "" : "/";
-        return requestSignature.getProtocol() + "://" + requestSignature.getHost() + ":" + requestSignature.getPort() + pathPrefix + path;
+        return request.getProtocol() + "://" + request.getHost() + ":" + request.getPort() + pathPrefix + path;
     }
 
     public HttpHeaders buildHeaders(Map<String, String> headerMap) {

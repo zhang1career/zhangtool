@@ -9,4 +9,8 @@ public class UuidUtil {
     static public String uuid() {
         return UUID.randomUUID().toString().replace("-", "").toLowerCase();
     }
+
+    private UuidUtil() {
+        throw new AssertionError();
+    }
 }

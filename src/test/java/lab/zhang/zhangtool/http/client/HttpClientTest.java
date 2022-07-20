@@ -1,6 +1,8 @@
-package lab.zhang.zhangtool.http;
+package lab.zhang.zhangtool.http.client;
 
 import lab.zhang.zhangtool.ApplicationTest;
+import lab.zhang.zhangtool.http.model.Request;
+import lab.zhang.zhangtool.http.model.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,10 +20,10 @@ import java.util.Map;
 @SpringBootTest(classes = {ApplicationTest.class}, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @PropertySource(value = "classpath:application.properties")
 @Slf4j
-public class HttpServiceTest {
+public class HttpClientTest {
 
     @Resource
-    private HttpService httpService;
+    private HttpClient httpClient;
 
     private String protocol;
     private String host;
@@ -42,13 +44,13 @@ public class HttpServiceTest {
     @Test
     public void test_post() throws Exception {
         addr = "";
-        ResponseDTO responseDTO = httpService.post(
-                RequestSignature.of(protocol, host, port),
+        Response responseDTO = httpClient.post(
+                Request.of(protocol, host, port),
                 addr,
                 headMap,
                 paramMap,
                 null,
-                ResponseDTO.class);
+                Response.class);
         System.out.println(responseDTO);
     }
 }

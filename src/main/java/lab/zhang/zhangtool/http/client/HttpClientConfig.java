@@ -1,4 +1,4 @@
-package lab.zhang.zhangtool.http;
+package lab.zhang.zhangtool.http.client;
 
 import org.hobsoft.spring.resttemplatelogger.LoggingCustomizer;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
  * @author zhangrj
  */
 @Configuration
-public class RestTempleConfig {
+public class HttpClientConfig {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplateBuilder()

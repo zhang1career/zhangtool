@@ -52,6 +52,10 @@ public class ListUtil {
         return map;
     }
 
+    private ListUtil() {
+        throw new AssertionError();
+    }
+
 
     public interface Convertible<P, R> {
         R covertFrom(P param);

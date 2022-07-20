@@ -48,4 +48,8 @@ public class GcLogUtil {
         }
         return sum / (1024 * 1024);
     }
+
+    private GcLogUtil() {
+        throw new AssertionError();
+    }
 }

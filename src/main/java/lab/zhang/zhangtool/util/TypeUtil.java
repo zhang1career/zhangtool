@@ -18,4 +18,8 @@ public class TypeUtil {
 
         return TypeToken.get(paramType);
     }
+
+    private TypeUtil() {
+        throw new AssertionError();
+    }
 }
